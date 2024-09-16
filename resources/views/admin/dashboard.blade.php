@@ -15,6 +15,17 @@
                         @endif
 
                         {{ __('You are logged in!') }}
+
+                        <!-- Bottone per accedere all'index di Molitura -->
+                        <a href="{{ route('admin.molitura.index') }}" class="btn btn-primary mt-3">
+                            Vai a Moliture
+                        </a>
+
+                        <!-- Bottone per accedere all'index di Spese Breve Termine -->
+                        <a href="{{ route('admin.spese_breve_termine.index') }}" class="btn btn-secondary mt-3">
+                            Vai a Spese Breve Termine
+                        </a>
+
                     </div>
                 </div>
             </div>
