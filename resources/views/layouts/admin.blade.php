@@ -57,15 +57,46 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
+              <!-- Link per la Dashboard -->
               <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.dashboard') }}">
                   <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                 </a>
               </li>
+        
+              <!-- Link per Moliture -->
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.molitura.index' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.molitura.index') }}">
+                  <i class="fa-solid fa-oil-can fa-lg fa-fw"></i> Moliture
+                </a>
+              </li>
+        
+              <!-- Link per Spese Breve Termine -->
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.spese_breve_termine.index' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.spese_breve_termine.index') }}">
+                  <i class="fa-solid fa-money-bill-wave fa-lg fa-fw"></i> Spese Breve Termine
+                </a>
+              </li>
+        
+              <!-- Link per Spese Lungo Termine -->
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.spese_lungo_termine.index' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.spese_lungo_termine.index') }}">
+                  <i class="fa-solid fa-business-time fa-lg fa-fw"></i> Spese Lungo Termine
+                </a>
+              </li>
+        
+              <!-- Link per Vendite -->
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.vendite.index' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.vendite.index') }}">
+                  <i class="fa-solid fa-shopping-cart fa-lg fa-fw"></i> Vendite
+                </a>
+              </li>
             </ul>
-
-
           </div>
         </nav>
 

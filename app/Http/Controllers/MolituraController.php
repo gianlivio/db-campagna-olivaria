@@ -20,7 +20,19 @@ class MolituraController extends Controller
 
     public function store(Request $request)
     {
-        Molitura::create($request->all());
+        // validation
+        $validated = $request->validate([
+            'data' => 'required|date',
+            'frantoio' => 'required|string|max:255',
+            'terreno' => 'required|string|max:255',
+            'kg_olive' => 'required|numeric|min:0',
+            'varieta' => 'required|string|max:255',
+            'litri_olio' => 'required|numeric|min:0',
+            'resa' => 'required|numeric|min:0|max:100',
+        ]);
+
+        Molitura::create($validated);
+
         return redirect()->route('admin.molitura.index');
     }
 
@@ -38,8 +50,20 @@ class MolituraController extends Controller
 
     public function update(Request $request, $id)
     {
+        // validation
+        $validated = $request->validate([
+            'data' => 'required|date',
+            'frantoio' => 'required|string|max:255',
+            'terreno' => 'required|string|max:255',
+            'kg_olive' => 'required|numeric|min:0',
+            'varieta' => 'required|string|max:255',
+            'litri_olio' => 'required|numeric|min:0',
+            'resa' => 'required|numeric|min:0|max:100',
+        ]);
+
         $molitura = Molitura::findOrFail($id);
-        $molitura->update($request->all());
+        $molitura->update($validated);
+
         return redirect()->route('admin.molitura.index');
     }
 
@@ -47,6 +71,7 @@ class MolituraController extends Controller
     {
         $molitura = Molitura::findOrFail($id);
         $molitura->delete();
+
         return redirect()->route('admin.molitura.index');
     }
 }
