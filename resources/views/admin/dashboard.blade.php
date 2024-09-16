@@ -26,6 +26,14 @@
                             Vai a Spese Breve Termine
                         </a>
 
+                        <a href="{{ route('admin.spese_lungo_termine.index') }}" class="btn btn-success mt-3">
+                            Vai a Spese Lungo Termine
+                        </a>
+
+                        <a href="{{ route('admin.vendite.index') }}" class="btn btn-success mt-3">
+                            Vai a Vendite
+                        </a>
+
                     </div>
                 </div>
             </div>
