@@ -6,6 +6,7 @@ use App\Http\Controllers\SpeseBreveTermineController;
 use App\Http\Controllers\SpeseLungoTermineController;
 use App\Http\Controllers\VenditeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,9 @@ Route::middleware('auth')
 
         // Rotte CRUD per Vendite
         Route::resource('vendite', VenditeController::class);
+
+        // Rotta per la visualizzazione dei contatti
+        Route::get('/contacts', [AdminContactController::class, 'index'])->name('contacts');
     });
 
 require __DIR__ . '/auth.php';
