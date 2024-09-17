@@ -8,6 +8,13 @@ use App\Models\SpeseLungoTermine;
 class SpeseLungoTermineController extends Controller
 {
    
+        // Metodo API che restituisce i dati in formato JSON
+    public function apiIndex()
+    {
+        $speseLungoTermine = SpeseLungoTermine::select('descrizione')->get();
+        return response()->json($speseLungoTermine);
+    }
+    
     public function index()
     {
         $speseLungoTermine = SpeseLungoTermine::all();

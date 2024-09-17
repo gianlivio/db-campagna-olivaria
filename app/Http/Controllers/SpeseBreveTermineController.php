@@ -7,6 +7,13 @@ use App\Models\SpeseBreveTermine;
 
 class SpeseBreveTermineController extends Controller
 {
+    // Metodo API che restituisce i dati in formato JSON
+    public function apiIndex()
+    {
+        $speseBreveTermine = SpeseBreveTermine::all();
+        return response()->json($speseBreveTermine);
+    }
+    
     public function index()
     {
         $speseBreveTermine = SpeseBreveTermine::all();

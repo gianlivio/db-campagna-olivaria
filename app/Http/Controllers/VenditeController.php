@@ -8,6 +8,14 @@ use App\Models\Vendite;
 
 class VenditeController extends Controller
 {
+
+    // Metodo per l'API che restituisce le vendite in formato JSON
+    public function apiIndex()
+    {
+        $vendite = Vendite::select('nome_cliente', 'quantita_ordinata')->get();
+        return response()->json($vendite);
+    }
+
     public function index()
     {
         $vendite = Vendite::all();

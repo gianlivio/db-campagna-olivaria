@@ -7,6 +7,13 @@ use App\Models\Molitura; //
 
 class MolituraController extends Controller
 {
+    // Metodo API che restituisce i dati in formato JSON
+    public function apiIndex()
+    {
+        $molitura = Molitura::all();
+        return response()->json($molitura);
+    }
+    
     public function index()
     {
         $molitura = Molitura::all();
