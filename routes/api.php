@@ -7,6 +7,7 @@ use App\Http\Controllers\SpeseBreveTermineController;
 use App\Http\Controllers\SpeseLungoTermineController;
 use App\Http\Controllers\VenditeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
 /*
@@ -32,3 +33,4 @@ Route::get('/spese-lungo-termine', [SpeseLungoTermineController::class, 'apiInde
 Route::get('/vendite', [VenditeController::class, 'apiIndex']);
 
 Route::post('/contact', [ContactController::class, 'submit']);
+Route::post('/login', [AuthenticatedSessionController::class, 'apiLogin']);

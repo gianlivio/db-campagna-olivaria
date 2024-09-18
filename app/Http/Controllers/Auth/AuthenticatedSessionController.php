@@ -12,6 +12,32 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+    
+    public function apiLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json([
+                'message' => 'Le credenziali non sono corrette.',
+            ], 401);
+        }
+
+        $request->session()->regenerate(); // Questo rigenera la sessione
+
+        $user = $request->user();
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'token' => $token,
+            'user' => $user,
+            'isAdmin' => $user->is_admin,
+        ]);
+    }
+    
     /**
      * Display the login view.
      */
